@@ -1,0 +1,53 @@
+// Bare HTML elements only!
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  &.u-fixed {
+    overflow: hidden;
+  }
+}
+
+// Common margin-bottom for vertical rhythm.
+dl,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+pre,
+table {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+img,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+svg {
+  height: 100%;
+}
+
+input {
+  border: 0;
+  font-size: 1rem;
+  padding: 0.5rem;
+}

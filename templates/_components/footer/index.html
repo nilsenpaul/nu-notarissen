@@ -1,0 +1,46 @@
+<footer class="app-footer">
+  <section class="app-footer__info info">
+
+    <div class="container info__container">
+      <a href="/" class="u-image-link">
+        <svg class="info__logo">
+          <use xlink:href="#logo-emblem" />
+        </svg>
+      </a>
+
+      <address class="info__address">
+        <span class="info__street-address">{{ contact_details.address }}</span>
+        <a href="mailto:{{ contact_details.email }}">{{ contact_details.email }}</a>
+      </address>
+
+
+      <nav class="info__navigation">
+        <a href="{{ global_pages.mijnDossierLink }}">Mijn Dossier</a>
+
+        <span class="info__languages">
+          <!--<a href="">NL</a>-->
+          <a href="{{ global_pages.englishLink.one().url }}">English</a>
+        </span>
+      </nav>
+    </div>
+
+  </section>
+
+  <section class="app-footer__meta meta container">
+    <a class="meta__info__open" onclick="openMetaInfo(event)">{{ payoff.payoff_title }}</a>
+
+    <article class="meta__info">
+      <a class="meta__info__close" onclick="closeMetaInfo(event)">
+        <svg viewBox="0 0 24 24">
+          <rect x="0" y="10" height="4" width="24" fill="currentColor"></rect>
+          <rect x="10" y="0" height="24" width="4" fill="currentColor"></rect>
+        </svg>
+        <span class="hide-text">Sluiten</span>
+      </a>
+
+      {{ payoff.payoff_text }}
+    </article>
+
+    {% include '_partials/meta.html' %}
+  </section>
+</footer>

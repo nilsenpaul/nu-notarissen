@@ -1,0 +1,14 @@
+// scss-lint:disable HexNotation SpaceAfterVariableName
+
+// Breakpoints
+$breakpoints: (
+  'phone-portrait': 320px,
+  'phone-landscape': 568px,
+  'tablet': 768px,
+  'tablet-portrait': 768px,
+  'tablet-landscape': 1024px,
+  'desktop': 1280px,
+  'widescreen': 1440px,
+  'widescreen-with-logo': 1565px,
+  'min-device-height': 400px,
+);

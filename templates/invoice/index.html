@@ -1,0 +1,125 @@
+{% set refEntry = craft.entries.id(craft.app.request.getParam('refId')).first() %}
+
+{% macro errorList(errors) %}
+    {% if errors %}
+        <ul class="invoice__errors">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% extends "_app/app.html" %}
+
+{% block content %}
+  <header class="entry__header">
+    <h2 class="entry__title">
+      Offerte aanvragen -
+      {{ refEntry.title }}
+    </h2>
+  </header>
+
+  {% if entry.body %}
+  <section class="entry__content">
+    {{ entry.body }}
+  </section>
+  {% endif %}
+
+  <div class="invoice__content">
+
+    {% from _self import errorList %}
+
+    {% if craft.request.getParam('success') == 'true' %}
+      {{ entry.thanks }}
+    {% else %}
+
+    <form method="post" action="" accept-charset="UTF-8">
+      {{ getCsrfInput() }}
+
+      <input type="hidden" name="action" value="contactForm/sendMessage">
+      <input type="hidden" name="redirect" value="offerte/?success=true">
+      <input type="hidden" name="subject" value="Offerte aanvragen - {{ refEntry.title }}">
+      <input id="ikbengeenbot" name="ikbengeenbot" type="text">
+
+      <dl class="invoice__fields">
+
+        <dt>Geslacht</dt>
+        <dd>
+          <label><input type="checkbox" name="message[Geslacht]" value="Man"> Man</label>
+          <label><input type="checkbox" name="message[Geslacht]" value="Vrouw"> Vrouw</label>
+        </dd>
+
+        <dt><label for="voorletters">Voorletters</label></dt>
+        <dd>
+          <input id="voorletters"
+                 name="message[Voorletters]"
+                 type="text"
+                 value="">
+        </dd>
+
+        <dt><label for="fromName">Achternaam</label></dt>
+        <dd>
+          <input id="fromName"
+                 name="fromName"
+                 type="text"
+                 value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+          {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+        </dd>
+
+        <dt><label for="adres">Adres</label></dt>
+        <dd>
+          <input id="adres"
+                 name="message[Adres]"
+                 type="text"
+                 value="">
+        </dd>
+
+        <dt><label for="postcode">Postcode</label></dt>
+        <dd>
+          <input id="postcode"
+                 name="message[Postcode]"
+                 type="text"
+                 value="">
+        </dd>
+
+        <dt><label for="woonplaats">Woonplaats</label></dt>
+        <dd>
+          <input id="woonplaats"
+                 name="message[Woonplaats]"
+                 type="text"
+                 value="">
+        </dd>
+
+        <dt><label for="telefoonnummer">Telefoonnummer</label></dt>
+        <dd>
+          <input id="telefoonnummer"
+                 name="message[Telefoonnummer]"
+                 type="text"
+                 value="">
+        </dd>
+
+        <dt><label for="fromEmail">E-mailadres</label></dt>
+        <dd>
+          <input id="fromEmail"
+                 name="fromEmail"
+                 type="text"
+                 value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+          {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+        </dd>
+
+      </dl>
+
+      <p>
+        <button type="submit" class="button">
+          Verstuur
+        </button>
+      </p>
+
+    </form>
+
+    {% endif %}
+
+  </div>
+
+{% endblock %}

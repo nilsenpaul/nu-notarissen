@@ -1,0 +1,829 @@
+dateModified: 1584623583
+email:
+  fromEmail: nunotarissen-development@nilsenpaul.nl
+  fromName: NuNotarissen
+  replyToEmail: null
+  template: ''
+  transportSettings:
+    token: $POSTMARK_API_KEY
+  transportType: craftcms\postmark\Adapter
+fieldGroups:
+  254fa5ee-8fb0-4aac-9915-0d99d0f18fe5:
+    name: 'Offerte aanvraag'
+  9bf7bbdf-f8fc-4f5a-9df5-47a110113668:
+    name: Default
+  c739db7e-c4c6-4a79-8347-f4a8aacc269f:
+    name: Globals
+  e67dfb0b-4eb8-4315-bf3a-485ceaeb10df:
+    name: 'Offerte specificatie'
+fields:
+  04153875-0551-4724-8310-ebff31ec1308:
+    contentColumnType: string
+    fieldGroup: 9bf7bbdf-f8fc-4f5a-9df5-47a110113668
+    handle: tags
+    instructions: null
+    name: Tags
+    searchable: true
+    settings:
+      localizeRelations: false
+      source: 'taggroup:8176a47f-78c2-4190-9444-9f98b85d56b0'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Tags
+  27c99b95-c5c7-468a-862f-141538eba48c:
+    contentColumnType: string
+    fieldGroup: 254fa5ee-8fb0-4aac-9915-0d99d0f18fe5
+    handle: estimate_details
+    instructions: 'Wanneer een bezoeker informatie in moet vullen op basis waarvan de prijs wordt bepaald, maak je hier de velden daarvoor aan. Deze velden gebruik je daarna bij ''specificatie'' om de offerteregels te bepalen.'
+    name: 'Aanvraag details'
+    searchable: true
+    settings:
+      contentTable: '{{%matrixcontent_estimate_details}}'
+      maxBlocks: null
+      propagationMethod: all
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Matrix
+  36cebcb4-473b-4dc0-921d-d7baaebdcd64:
+    contentColumnType: text
+    fieldGroup: 9bf7bbdf-f8fc-4f5a-9df5-47a110113668
+    handle: linksToUrl
+    instructions: 'Gebruik dit veld om vanuit de navigatie te linken naar een externe pagina'
+    name: 'Link naar externe URL'
+    searchable: true
+    settings:
+      charLimit: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3d9bf176-9f3e-4efd-a7d0-d0771a8f411b:
+    contentColumnType: string
+    fieldGroup: c739db7e-c4c6-4a79-8347-f4a8aacc269f
+    handle: voorwaardenLink
+    instructions: ''
+    name: 'Algemene Voorwaarden'
+    searchable: true
+    settings:
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      sources: '*'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Entries
+  5463340f-71f0-4c27-b9bf-99a622b8eb7f:
+    contentColumnType: string
+    fieldGroup: e67dfb0b-4eb8-4315-bf3a-485ceaeb10df
+    handle: estimate
+    instructions: 'Vul hier de offerteregels in die gelden voor deze dienst. Dit kunnen meerdere regels zijn. Elke regel kan afhankelijk zijn van een veld bij ''Aanvraag details'', maar dit hoeft niet.'
+    name: Specificatie
+    searchable: true
+    settings:
+      contentTable: '{{%matrixcontent_estimate}}'
+      maxBlocks: null
+      propagationMethod: all
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Matrix
+  6038ca92-c2a6-4ffe-ace9-417eec12dbd4:
+    contentColumnType: string
+    fieldGroup: 9bf7bbdf-f8fc-4f5a-9df5-47a110113668
+    handle: image
+    instructions: ''
+    name: Afbeelding
+    searchable: true
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:9ead895f-d77e-4e07-8f23-17f7d11a4dfe'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:9ead895f-d77e-4e07-8f23-17f7d11a4dfe'
+      singleUploadLocationSubpath: ''
+      sources: '*'
+      useSingleFolder: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Assets
+  6eb2c836-0155-402f-b6bf-f5f2ad2818ab:
+    contentColumnType: string
+    fieldGroup: 9bf7bbdf-f8fc-4f5a-9df5-47a110113668
+    handle: option_related_position
+    instructions: ''
+    name: 'Positie van Gerelateerde Links'
+    searchable: true
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - default
+              - '1'
+            -
+              - label
+              - 'Boven de inhoud'
+            -
+              - value
+              - top
+        -
+          __assoc__:
+            -
+              - default
+              - ''
+            -
+              - label
+              - 'Onder de inhoud'
+            -
+              - value
+              - bottom
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\RadioButtons
+  760d19af-24f9-4cde-8d24-c96608a46a8c:
+    contentColumnType: string
+    fieldGroup: 9bf7bbdf-f8fc-4f5a-9df5-47a110113668
+    handle: page
+    instructions: ''
+    name: Pagina
+    searchable: true
+    settings:
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      sources: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Entries
+  7f340624-e6b4-45cb-9bcf-83e7b0070ae4:
+    contentColumnType: string
+    fieldGroup: c739db7e-c4c6-4a79-8347-f4a8aacc269f
+    handle: payoff_text
+    instructions: ''
+    name: 'Visie tekst'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: '1'
+      columnType: text
+      configFile: Simple.json
+      purifierConfig: ''
+      purifyHtml: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  83552a29-b688-4555-ae58-c3d85869807b:
+    contentColumnType: text
+    fieldGroup: c739db7e-c4c6-4a79-8347-f4a8aacc269f
+    handle: address
+    instructions: ''
+    name: Adres
+    searchable: true
+    settings:
+      charLimit: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8fdc62e3-ce96-4f91-81f8-59841d46025a:
+    contentColumnType: string
+    fieldGroup: c739db7e-c4c6-4a79-8347-f4a8aacc269f
+    handle: disclaimerLink
+    instructions: ''
+    name: Disclaimer
+    searchable: true
+    settings:
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      sources: '*'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Entries
+  97f85033-a81f-45e6-9806-787e58c43baf:
+    contentColumnType: text
+    fieldGroup: c739db7e-c4c6-4a79-8347-f4a8aacc269f
+    handle: email
+    instructions: ''
+    name: Email
+    searchable: true
+    settings:
+      charLimit: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  9daff727-170f-491f-a54b-de5fd9997354:
+    contentColumnType: string
+    fieldGroup: c739db7e-c4c6-4a79-8347-f4a8aacc269f
+    handle: englishLink
+    instructions: ''
+    name: 'English Pagina'
+    searchable: true
+    settings:
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      sources: '*'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Entries
+  a87fb4b8-d332-4077-9105-17185ab0a558:
+    contentColumnType: string
+    fieldGroup: 9bf7bbdf-f8fc-4f5a-9df5-47a110113668
+    handle: pages
+    instructions: ''
+    name: 'Gerelateerde pagina''s'
+    searchable: true
+    settings:
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      sources: '*'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Entries
+  b482a5f2-7aa9-4b2d-9916-1f5e62daaf9a:
+    contentColumnType: text
+    fieldGroup: c739db7e-c4c6-4a79-8347-f4a8aacc269f
+    handle: mijnDossierLink
+    instructions: ''
+    name: 'Mijn Dossier URL'
+    searchable: true
+    settings:
+      charLimit: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  cb264f01-9fd2-4ac6-abc3-c97d3ebfb919:
+    contentColumnType: text
+    fieldGroup: c739db7e-c4c6-4a79-8347-f4a8aacc269f
+    handle: payoff_title
+    instructions: ''
+    name: 'Visie titel'
+    searchable: true
+    settings:
+      charLimit: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f9dec717-fce7-4dd5-b989-aa85883cd6de:
+    contentColumnType: string
+    fieldGroup: 9bf7bbdf-f8fc-4f5a-9df5-47a110113668
+    handle: body
+    instructions: null
+    name: Body
+    searchable: true
+    settings:
+      columnType: text
+      configFile: Standard.json
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\redactor\Field
+globalSets:
+  0c212c46-fbd1-47d1-9feb-2f7f7a370070:
+    fieldLayouts:
+      605780e4-e1d4-4c1c-a67b-b3b59e61c0ce:
+        tabs:
+          -
+            fields:
+              83552a29-b688-4555-ae58-c3d85869807b:
+                required: false
+                sortOrder: 1
+              97f85033-a81f-45e6-9806-787e58c43baf:
+                required: false
+                sortOrder: 2
+            name: Inhoud
+            sortOrder: 1
+    handle: contact_details
+    name: Contact
+  3d8b06d1-d1d7-4a15-a668-549f924f54c3:
+    fieldLayouts:
+      f039eb56-adbc-4fb5-9718-19c5b1d6f7e6:
+        tabs:
+          -
+            fields:
+              7f340624-e6b4-45cb-9bcf-83e7b0070ae4:
+                required: false
+                sortOrder: 2
+              cb264f01-9fd2-4ac6-abc3-c97d3ebfb919:
+                required: false
+                sortOrder: 1
+            name: Inhoud
+            sortOrder: 1
+    handle: payoff
+    name: Visie
+  7092883b-65f1-4dc0-8559-73dbb59ad1bd:
+    fieldLayouts:
+      1d3dc364-7e21-4045-8de9-9bf486e870be:
+        tabs:
+          -
+            fields:
+              3d9bf176-9f3e-4efd-a7d0-d0771a8f411b:
+                required: false
+                sortOrder: 1
+              8fdc62e3-ce96-4f91-81f8-59841d46025a:
+                required: false
+                sortOrder: 2
+              9daff727-170f-491f-a54b-de5fd9997354:
+                required: false
+                sortOrder: 3
+              b482a5f2-7aa9-4b2d-9916-1f5e62daaf9a:
+                required: false
+                sortOrder: 4
+            name: Inhoud
+            sortOrder: 1
+    handle: global_pages
+    name: 'Globale Pagina''s'
+matrixBlockTypes:
+  5e850bbc-a058-4cc6-8d71-2bff6f260229:
+    field: 5463340f-71f0-4c27-b9bf-99a622b8eb7f
+    fieldLayouts:
+      345087a0-7465-42da-af47-03109307964a:
+        tabs:
+          -
+            fields:
+              91226bbd-d50f-4ce3-ace9-2b069c05b45d:
+                required: false
+                sortOrder: 3
+              aae372b2-0833-4d7c-83cc-c29ae66710cc:
+                required: false
+                sortOrder: 6
+              abef8e95-3d30-4863-ae62-c2e3224dd3c7:
+                required: false
+                sortOrder: 2
+              b0dffb84-4dae-4d31-915b-b8ce1e3c011d:
+                required: false
+                sortOrder: 1
+              ce50a394-0dab-45f1-8bd9-13713e50940b:
+                required: false
+                sortOrder: 5
+              e1e4a857-aded-4539-b22e-fc6a25ef62c1:
+                required: false
+                sortOrder: 4
+            name: Content
+            sortOrder: 1
+    fields:
+      91226bbd-d50f-4ce3-ace9-2b069c05b45d:
+        contentColumnType: 'decimal(12,2)'
+        fieldGroup: null
+        handle: condition_value_min
+        instructions: 'Optioneel. Wanneer ingevuld in combinatie met het veld ''Offerte detail'', wordt deze regel alleen getoond als de door de bezoeker ingevulde waarde hoger is dan de waarde in dit veld.'
+        name: 'Minimum bedrag'
+        searchable: true
+        settings:
+          decimals: '2'
+          max: ''
+          min: '0'
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Number
+      aae372b2-0833-4d7c-83cc-c29ae66710cc:
+        contentColumnType: boolean
+        fieldGroup: null
+        handle: calculator_item_taxable
+        instructions: ''
+        name: 'Belastbaar?'
+        searchable: true
+        settings:
+          default: '1'
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Lightswitch
+      abef8e95-3d30-4863-ae62-c2e3224dd3c7:
+        contentColumnType: text
+        fieldGroup: null
+        handle: calculator_item_condition_name
+        instructions: 'Optioneel. Wanneer ingevuld, moet deze waarde gelijk zijn aan die van een veld bij ''Aanvraag details''. Te gebruiken in combinatie met minimum bedrag, maximum bedrag of beide.'
+        name: 'Offerte detail'
+        searchable: true
+        settings:
+          charLimit: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      b0dffb84-4dae-4d31-915b-b8ce1e3c011d:
+        contentColumnType: text
+        fieldGroup: null
+        handle: calculator_item_name
+        instructions: 'De naam van deze offerteregel, zoals vermeld op de offerte.'
+        name: Onderdeel
+        searchable: true
+        settings:
+          charLimit: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      ce50a394-0dab-45f1-8bd9-13713e50940b:
+        contentColumnType: 'decimal(12,2)'
+        fieldGroup: null
+        handle: calculator_item_price
+        instructions: ''
+        name: Prijs
+        searchable: true
+        settings:
+          decimals: '2'
+          max: ''
+          min: '0'
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Number
+      e1e4a857-aded-4539-b22e-fc6a25ef62c1:
+        contentColumnType: 'decimal(12,2)'
+        fieldGroup: null
+        handle: condition_value_max
+        instructions: 'Optioneel. Wanneer ingevuld in combinatie met het veld ''Offerte detail'', wordt deze regel alleen getoond als de door de bezoeker ingevulde waarde lager is dan de waarde in dit veld.'
+        name: 'Maximum bedrag'
+        searchable: true
+        settings:
+          decimals: '2'
+          max: ''
+          min: '0'
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Number
+    handle: estimate
+    name: Specificatie
+    sortOrder: 1
+  f19b31c6-6e9b-431f-8911-34e362ddac7a:
+    field: 27c99b95-c5c7-468a-862f-141538eba48c
+    fieldLayouts:
+      38d128dc-0b96-4536-83fa-149f3aa796d6:
+        tabs:
+          -
+            fields:
+              900437fd-2858-4ea2-8571-d7aac16b30db:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      900437fd-2858-4ea2-8571-d7aac16b30db:
+        contentColumnType: text
+        fieldGroup: null
+        handle: item_name
+        instructions: 'De naam van dit veld, zichtbaar voor de bezoeker. Gebruik deze naam ook bij ''specificaties'', als een offerteregel afhankelijk is van dit veld.'
+        name: Veld
+        searchable: true
+        settings:
+          charLimit: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+    handle: input
+    name: Invoer
+    sortOrder: 1
+plugins:
+  contact-form:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      prependSender: Namens
+      prependSubject: 'Nieuw bericht vanaf de website'
+      successFlashMessage: 'Je bericht is verstuurd.'
+      toEmail: info@nunotarissen.nl
+  postmark:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.1
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+sections:
+  0a35e94d-ed91-459a-8287-c00a638f16a8:
+    enableVersioning: true
+    entryTypes:
+      2d7d4964-17ac-45ce-b6d0-05bb54b60e91:
+        fieldLayouts:
+          d99aa436-b5a5-48fb-a9d8-a296c3796206:
+            tabs:
+              -
+                fields:
+                  f9dec717-fce7-4dd5-b989-aa85883cd6de:
+                    required: false
+                    sortOrder: 1
+                name: Inhoud
+                sortOrder: 1
+        handle: contact
+        hasTitleField: false
+        name: Contact
+        sortOrder: 1
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: contact
+    name: Contact
+    previewTargets:
+      -
+        label: 'Primaire invoer-pagina'
+        urlFormat: '{url}'
+    propagationMethod: all
+    siteSettings:
+      7856d15d-a197-420f-ad37-95374db73158:
+        enabledByDefault: true
+        hasUrls: true
+        template: contact
+        uriFormat: contact
+    type: single
+  0ea6d2a7-3665-4793-a995-cbf85434dab1:
+    enableVersioning: true
+    entryTypes:
+      dc7cb428-18a4-4a48-8ce1-7e5eee124ca1:
+        fieldLayouts:
+          1d75cfc0-a3ab-4de0-8d03-621f881ee903:
+            tabs:
+              -
+                fields:
+                  f9dec717-fce7-4dd5-b989-aa85883cd6de:
+                    required: false
+                    sortOrder: 1
+                name: Inhoud
+                sortOrder: 1
+        handle: invoice
+        hasTitleField: false
+        name: 'Offerte Aanvraagformulier'
+        sortOrder: 1
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: invoice
+    name: 'Offerte Aanvraagformulier'
+    previewTargets:
+      -
+        label: 'Primaire invoer-pagina'
+        urlFormat: '{url}'
+    propagationMethod: all
+    siteSettings:
+      7856d15d-a197-420f-ad37-95374db73158:
+        enabledByDefault: true
+        hasUrls: true
+        template: invoice
+        uriFormat: offerte
+    type: single
+  58311515-1a70-4211-a056-30c68143e957:
+    enableVersioning: false
+    entryTypes:
+      ca13b4ab-26c0-48f4-8dd1-4c0ef1cce63e:
+        fieldLayouts:
+          4aba08bd-8508-4451-b1ac-e66031cd35e4:
+            tabs:
+              -
+                fields:
+                  36cebcb4-473b-4dc0-921d-d7baaebdcd64:
+                    required: false
+                    sortOrder: 2
+                  760d19af-24f9-4cde-8d24-c96608a46a8c:
+                    required: false
+                    sortOrder: 1
+                name: Link
+                sortOrder: 1
+        handle: navigation
+        hasTitleField: true
+        name: Navigatie
+        sortOrder: 1
+        titleFormat: null
+        titleLabel: Titel
+    handle: navigation
+    name: Navigatie
+    propagationMethod: all
+    siteSettings:
+      7856d15d-a197-420f-ad37-95374db73158:
+        enabledByDefault: true
+        hasUrls: false
+        template: null
+        uriFormat: null
+    structure:
+      maxLevels: null
+      uid: 0e1faa83-ae6a-4d3a-ae82-c2e90626ea83
+    type: structure
+  b2c85565-938c-44c6-b561-0bd8934cf781:
+    enableVersioning: true
+    entryTypes:
+      43b24855-ba89-4cae-be66-2cf93374f5e9:
+        fieldLayouts:
+          606807e5-510a-448a-b880-4dc9b44005f2:
+            tabs:
+              -
+                fields:
+                  6038ca92-c2a6-4ffe-ace9-417eec12dbd4:
+                    required: false
+                    sortOrder: 2
+                  6eb2c836-0155-402f-b6bf-f5f2ad2818ab:
+                    required: false
+                    sortOrder: 4
+                  a87fb4b8-d332-4077-9105-17185ab0a558:
+                    required: false
+                    sortOrder: 3
+                  f9dec717-fce7-4dd5-b989-aa85883cd6de:
+                    required: false
+                    sortOrder: 1
+                name: Inhoud
+                sortOrder: 1
+        handle: pages
+        hasTitleField: true
+        name: 'Pagina''s'
+        sortOrder: 1
+        titleFormat: null
+        titleLabel: Titel
+    handle: pages
+    name: 'Pagina''s'
+    previewTargets:
+      -
+        label: 'Primaire invoer-pagina'
+        urlFormat: '{url}'
+    propagationMethod: all
+    siteSettings:
+      7856d15d-a197-420f-ad37-95374db73158:
+        enabledByDefault: true
+        hasUrls: true
+        template: pages/_entry
+        uriFormat: '{% if object.level == 1 %}{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+    structure:
+      maxLevels: null
+      uid: ceedc2c6-311f-4333-b28a-c227c466eeff
+    type: structure
+  ec831c95-041b-4b04-be91-4ea9fe3ab3da:
+    enableVersioning: true
+    entryTypes:
+      200e5b45-72a6-4c1c-8da0-4620ef1bf687:
+        fieldLayouts:
+          951efc80-84d6-4537-99a2-7c4c27541d4b:
+            tabs:
+              -
+                fields:
+                  6038ca92-c2a6-4ffe-ace9-417eec12dbd4:
+                    required: false
+                    sortOrder: 2
+                  6eb2c836-0155-402f-b6bf-f5f2ad2818ab:
+                    required: false
+                    sortOrder: 4
+                  a87fb4b8-d332-4077-9105-17185ab0a558:
+                    required: false
+                    sortOrder: 3
+                  f9dec717-fce7-4dd5-b989-aa85883cd6de:
+                    required: false
+                    sortOrder: 1
+                name: Inhoud
+                sortOrder: 1
+        handle: calculator
+        hasTitleField: false
+        name: Prijscalculator
+        sortOrder: 1
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: calculator
+    name: Prijscalculator
+    previewTargets:
+      -
+        label: 'Primaire invoer-pagina'
+        urlFormat: '{url}'
+    propagationMethod: all
+    siteSettings:
+      7856d15d-a197-420f-ad37-95374db73158:
+        enabledByDefault: true
+        hasUrls: true
+        template: calculator
+        uriFormat: prijscalculator
+    type: single
+  eda629e9-5ce6-46c8-9d57-606a0dfff5ee:
+    enableVersioning: true
+    entryTypes:
+      8471f65f-0de2-49d4-812f-ca69faafea59:
+        fieldLayouts:
+          09c63714-3e7e-44e6-83f5-985d1c9c9e6e:
+            tabs:
+              -
+                fields:
+                  6038ca92-c2a6-4ffe-ace9-417eec12dbd4:
+                    required: false
+                    sortOrder: 3
+                  6eb2c836-0155-402f-b6bf-f5f2ad2818ab:
+                    required: false
+                    sortOrder: 5
+                  760d19af-24f9-4cde-8d24-c96608a46a8c:
+                    required: false
+                    sortOrder: 2
+                  a87fb4b8-d332-4077-9105-17185ab0a558:
+                    required: false
+                    sortOrder: 4
+                  f9dec717-fce7-4dd5-b989-aa85883cd6de:
+                    required: false
+                    sortOrder: 1
+                name: Inhoud
+                sortOrder: 1
+              -
+                fields:
+                  27c99b95-c5c7-468a-862f-141538eba48c:
+                    required: false
+                    sortOrder: 1
+                  5463340f-71f0-4c27-b9bf-99a622b8eb7f:
+                    required: false
+                    sortOrder: 2
+                name: Offerte
+                sortOrder: 2
+        handle: services
+        hasTitleField: true
+        name: Diensten
+        sortOrder: 1
+        titleFormat: null
+        titleLabel: Titel
+    handle: services
+    name: Diensten
+    previewTargets:
+      -
+        label: 'Primaire invoer-pagina'
+        urlFormat: '{url}'
+    propagationMethod: all
+    siteSettings:
+      7856d15d-a197-420f-ad37-95374db73158:
+        enabledByDefault: true
+        hasUrls: true
+        template: calculator/_entry
+        uriFormat: '{% if object.level == 1 %}prijscalculator/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+    structure:
+      maxLevels: null
+      uid: 4d317902-769b-4df0-84c6-8c0bb3cd647c
+    type: structure
+siteGroups:
+  7b2e22ef-9cfa-4684-9f2a-72ec6c1a4d92:
+    name: 'NuNotarissen (nl-NL)'
+sites:
+  7856d15d-a197-420f-ad37-95374db73158:
+    baseUrl: $DEFAULT_SITE_URL
+    handle: nl_nl
+    hasUrls: true
+    language: nl-NL
+    name: 'NuNotarissen (nl-NL)'
+    primary: true
+    siteGroup: 7b2e22ef-9cfa-4684-9f2a-72ec6c1a4d92
+    sortOrder: 1
+system:
+  edition: pro
+  live: true
+  name: NuNotarissen
+  schemaVersion: 3.4.10
+  timeZone: UTC
+tagGroups:
+  8176a47f-78c2-4190-9444-9f98b85d56b0:
+    handle: default
+    name: Default
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: ''
+  photoVolumeUid: null
+  requireEmailVerification: true
+volumes:
+  8334e404-a32d-4911-b364-d25b3dbe2e21:
+    handle: userPhotos
+    hasUrls: false
+    name: 'User Photos'
+    settings:
+      path: '@storage/userphotos'
+    sortOrder: 2
+    type: craft\volumes\Local
+    url: null
+  9ead895f-d77e-4e07-8f23-17f7d11a4dfe:
+    handle: uploads
+    hasUrls: true
+    name: Uploads
+    settings:
+      path: $ASSETS_UPLOADS_PATH
+    sortOrder: 1
+    type: craft\volumes\Local
+    url: $ASSETS_UPLOADS_URL

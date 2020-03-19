@@ -1,0 +1,19 @@
+{% extends "_app/app.html" %}
+
+{% block content %}
+
+  {% include 'pages/_header' %}
+
+  {% if entry.option_related_position == 'top' %}
+  {% include 'pages/_links' %}
+  {% endif %}
+
+  <section class="entry__content">
+    {{ entry.body }}
+  </section>
+
+  {% if entry.option_related_position == 'bottom' %}
+    {% include 'pages/_links' %}
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "_app/app.html" %}
+
+{% block content %}
+
+  <div class="contact__wrapper">
+    <div class="contact__content">
+
+      <header>
+        <h2 class="entry__title">
+          {{ entry.title }}
+        </h2>
+      </header>
+
+      <section>
+        {{ entry.body }}
+      </section>
+
+    </div>
+
+    <div class="contact__map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8657.907277513325!2d4.654103338602595!3d52.38559194135103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef646efecbc5%3A0xf62ba432ac1ac7ab!2snu.notarissen!5e0!3m2!1sen!2snl!4v1504019853764" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+{% endblock %}

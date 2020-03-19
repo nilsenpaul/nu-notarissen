@@ -1,0 +1,170 @@
+{% extends "_app/app.html" %}
+
+{% block content %}
+
+  <header class="entry__header">
+    <h2 class="entry__title">
+      Prijscalculator
+      {{ entry.title }}
+    </h2>
+  </header>
+
+  {% set options = craft.entries.descendantOf(entry) %}
+  {% if options | length != 0 %}
+
+  <section class="calculator__content">
+
+      <form action="" method="get" data-base-url="{{ craft.app.request.absoluteUrl }}">
+
+      <div class="calculator__wrapper">
+        <label>
+          <span class="calculator__label">Waar wilt u een prijs voor berekenen?</span>
+
+          <span class="calculator__select__wrapper">
+            <select id="calculator"
+                    class="calculator__select" data-base-url="{{ craft.app.request.absoluteUrl  }}">
+              <option></option>
+            {% for option in options.all() %}
+            {# {% set value = entry.slug ~ '/' ~ option.slug %} #}
+              <option value="{{ option.slug }}">
+                {{ option.title }}
+              </option>
+            {% endfor %}
+            </select>
+          </span>
+        </label>
+
+        {% for option in options.all() %}
+        {# {% set value = entry.slug ~ '/' ~ option.slug %} #}
+        {% if option.estimate_details | length %}
+
+        <fieldset class="calculator__fields" id="fields-{{ option.slug }}">
+
+          {% for details in option.estimate_details.all() %}
+
+          <div class="calculator__field">
+            <label for="{{ option.slug }}-{{ details.item_name | camel }}">
+              {{ details.item_name }}
+            </label>
+
+            <input id="{{ option.slug }}-{{ details.item_name | camel }}"
+                  name="{{ option.slug }}-{{ details.item_name | camel }}"
+                  type="text" />
+          </div>
+
+          {% endfor %}
+
+        </fieldset>
+
+        {% endif %}
+        {% endfor %}
+      </div>
+
+      <p>
+        <button class="button" type="submit">
+          Bereken prijs
+        </button>
+      </p>
+
+    </form>
+
+  </section>
+
+  {% else %}
+
+  <section class="calculator__content">
+
+    <p>
+      Hieronder staat een overzicht van de kosten.
+      Als de prijs u aanspreekt kunt u hier direct een offerte aanvragen.
+    </p>
+
+    <div class="calculator__result">
+
+      <h2 class="calculator__result__title">{{ entry.title }}</h2>
+
+      {% if entry.estimate | length %}
+      {% set subtotal = 0 %}
+      {% set taxtotal = 0 %}
+
+      <dl class="calculator__result__section">
+      {% for estimate in entry.estimate.all() %}
+
+        {% if estimate | length %}
+
+          {% set name = estimate.calculator_item_name %}
+          {% set price = 0 %}
+
+          {% if estimate['calculator_item_condition_name'] is defined %}
+            {% set param = entry.slug ~ '-' ~ estimate.calculator_item_condition_name | camel %}
+            {# {% set param = entry.parent.slug ~ '/' ~ entry.slug ~ '-' ~ estimate.calculator_item_condition_name | camel %} #}
+            {% set value = craft.app.request.getParam(param) %}
+
+            {% if
+              (estimate.condition_value_min == 0 and value < estimate.condition_value_max) or
+              (value > estimate.condition_value_min and value < estimate.condition_value_max) or
+              (value > estimate.condition_value_min and  estimate.condition_value_max == 0)
+            %}
+              {% set price = estimate.calculator_item_price %}
+            {% endif %}
+
+          {% else %}
+            {% set price = estimate.calculator_item_price %}
+          {% endif %}
+
+          {% if estimate.calculator_item_taxable %}
+            {% set taxtotal = taxtotal + price %}
+          {% endif %}
+
+          {% set subtotal = subtotal + price %}
+
+          {% if price != 0 %}
+            <dt>{{ name }} {% if estimate.calculator_item_taxable %}*{% endif %}</dt>
+            <dd>{{ price | currency('') }}</dd>
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+      </dl>
+      {% endif %}
+
+      <dl class="calculator__result__section">
+        {% set taxtotal = taxtotal * 0.21 %}
+        <dt>Subtotaal</dt>
+        <dd>{{ subtotal | currency('') }}</dd>
+        <dt>21% BTW over posten met *</dt>
+        <dd>{{ taxtotal | currency('') }}</dd>
+      </dl>
+
+      <dl class="calculator__result__section">
+        {% set total = subtotal + taxtotal %}
+        <dt>Totaal</dt>
+        <dd>{{ total | currency('') }}</dd>
+      </dl>
+
+      <p class="calculator__result__meta">
+        deze offerte is gebaseerd op standaard transacties,
+        neem voor een offerte op maat contact met ons op.
+      </p>
+
+      <a href="javascript: window.print();" class="calculator__result__print print">
+        <span class="hide-text">Print</span>
+        <svg>
+          <use xlink:href="#icon-print" />
+        </svg>
+      </a>
+
+    </div>
+
+    <p>
+      <a href="/offerte?refId={{ entry.id }}" class="button">
+        Offerte aanvragen
+      </a>
+    </p>
+
+  </section>
+
+  {% endif %}
+
+{% endblock %}

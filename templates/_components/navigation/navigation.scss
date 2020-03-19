@@ -1,0 +1,127 @@
+.navigation {
+  background-color: $color-light;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding-bottom: 1rem;
+  top: 100%;
+  height: calc(100vh - 4rem);
+  width: 100%;
+  text-transform: lowercase;
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+  opacity: 0;
+  transform: translate3d(0, -1rem, 0);
+  left: -100%;
+
+  @include mappy-bp(tablet) {
+    height: auto;
+    opacity: 1;
+    padding-bottom: 0;
+    position: static;
+
+    &.navigation { transform: none; }
+  }
+
+  &.is-active--before,
+  &.is-active--after {
+    left: 0;
+  }
+
+  &:target:not(.js-navigation),
+  &.is-active {
+    left: 0;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &__toggle {
+    border: 0!important;
+    cursor: pointer;
+    display: block;
+    height: 24px;
+    position: relative;
+    transition: all .3s ease;
+    width: 24px;
+
+    @include mappy-bp(tablet) {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      background-color: $color-dark;
+      content: '';
+      display: block;
+      height: 4px;
+      position: absolute;
+      transition: all .3s ease;
+      width: 100%;
+    }
+
+    &::before {
+      box-shadow: 0 8px 0 $color-dark;
+      top: 2px;
+    }
+
+    &::after {
+      bottom: 2px;
+    }
+
+    &.is-active{
+      transform: rotate(45deg);
+
+      &::before {
+        box-shadow: none;
+        transform: translateY(8px);
+      }
+
+      &::after {
+        transform: translateY(-8px) rotate(90deg);
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    font-size: 1.25rem;
+    font-weight: bold;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+
+    @include mappy-bp(tablet) {
+      flex-grow: 0;
+      justify-content: flex-end;
+      font-size: 0.875rem;
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    margin: 0.5rem;
+
+    a {
+      border-bottom: solid 3px transparent;
+      padding: .25rem 0;
+      transition: border-color 300ms ease;
+    }
+
+    a:hover,
+    a:active,
+    &--is-active a {
+      border-bottom-color: $color-brand;
+    }
+
+    // Remove "Mijn Dossier" on larger screens
+    @include mappy-bp(tablet) {
+      &--mijn-dossier {
+        display: none;
+      }
+    }
+  }
+}

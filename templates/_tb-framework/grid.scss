@@ -1,0 +1,63 @@
+// GRID
+////////////////
+
+// The grid always wraps elemnts to the next line if elements
+// do not fit. You can add specific responsive behaviour to prevent this.
+
+// FIXED - ADD A .o-width-f(ixed) CLASS FOR A FIXED WIDTH
+// ================================================
+// Three blocks, two on line one, one on the second line
+// .o-grid-row
+//   .o-width-f-third = 33% width
+//   .o-width-f-third = 33% width
+//   .o-width-f-half = 50% width
+//
+// Five blocks, three on line one, two on the second line
+// .o-grid-row
+//   .o-width-f-third = 33% width
+//   .o-width-f-third = 33% width
+//   .o-width-f-third = 33% width
+//   .o-width-f-half = 50% width
+//   .o-width-f-half = 50% width
+//
+// RESPONSIVE - ADD A .o-width-r(esponsive) CLASS FOR SPECIFIC BEHAVIOUR
+// ================================================
+// Three block, size differs based on viewport. Elements wrap to next line if line is full
+// See .o-width-r-my-behaviour example below
+//
+// .o-grid-row
+//   .o-width-r-my-behaviour
+//   .o-width-r-my-behaviour
+//   .o-width-r-my-behaviour
+//
+//
+// COLUMNS
+// ================================================
+// Two columns, the first column streches to 200px height
+// .o-grid-row
+//   .o-grid-col.o-width-f-half
+//     .div = 100px height
+//   .o-grid-col.o-width-f-half
+//     .div = 100px height
+//     .div = 100px height
+
+
+.o-grid-row {
+  align-items: stretch;
+  flex-wrap: wrap;
+  display: flex;
+  > * {
+    width: 100%;
+  }
+}
+
+.o-grid-col {
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0;
+  }
+}

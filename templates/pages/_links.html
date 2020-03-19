@@ -1,0 +1,24 @@
+{% if entry.pages | length %}
+
+  <nav class="entry__related related">
+    <ul class="related__list">
+
+    {% for link in entry.pages.all() %}
+
+    {% set image = link.image.one() %}
+      <li class="related__item">
+        <a class="related__link" href="{{ link.url }}">
+          {% if image %}
+          <figure class="related__item__image__container">
+            <img class="related__item__image" src="{{ image.url }}" alt="" />
+          </figure>
+          {% endif %}
+          {{ link.title }}
+        </a>
+      </li>
+    {% endfor %}
+
+    </ul>
+  </nav>
+
+{% endif %}

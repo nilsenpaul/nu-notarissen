@@ -1,0 +1,27 @@
+{#
+  formatDate.
+  Pass in a date, and it'll return that date nicely formatted per locale.
+  The dateFormat setting is in config/general.php
+#}
+{% macro formatDate(date='Now', format=null) %}{% spaceless %}
+
+	{% if format == null %}
+		{% set format = craft.config.locales[craft.locale].dateFormat %}
+	{% endif %}
+
+	{{ date|date(format) }}
+
+{% endspaceless %}{% endmacro %}
+
+{#
+  getTransform.
+  Given an image, baseTransform and size, you'll get in return the URL of that
+  image resized to the correct transform. The transforms are defined in
+  transforms.json.
+#}
+{% macro getTransform(image, baseTransform, size) %}{% spaceless %}
+
+  {% set thisTransform = craft.JsonTransforms.getTransform(baseTransform, size) %}
+  {{ image.getUrl(thisTransform) }}
+
+{% endspaceless %}{% endmacro %}

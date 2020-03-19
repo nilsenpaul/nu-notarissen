@@ -1,0 +1,30 @@
+@mixin expand ($position: absolute, $align: null) {
+  $align: quote($align);
+
+  position: $position;
+  @if ($align == 'null') {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  @if ($align == 'center') {
+    bottom: -50%;
+    left: -50%;
+    margin: auto;
+    right: -50%;
+    top: -50%;
+  }
+  @if ($align == 'bottom') {
+    bottom: 0;
+  }
+  @if ($align == 'left') {
+    left: 0;
+  }
+  @if ($align == 'right') {
+    right: 0;
+  }
+  @if ($align == 'top') {
+    top: 0;
+  }
+}

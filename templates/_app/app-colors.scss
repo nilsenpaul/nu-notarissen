@@ -1,0 +1,39 @@
+// scss-lint:disable HexNotation SpaceAfterVariableName
+
+// Colors
+$color-black        : #424242;
+
+$color-gray         : #67767A;
+$color-gray-dark    : #3D3B3B; // darken($color-gray, 24%);
+$color-gray-light   : #FCFCFC; // lighten($color-gray, 40%);
+
+$color-blue         : #355C66;
+$color-blue-dark    : darken($color-blue, 8%);
+$color-blue-light   : lighten($color-blue, 16%);
+
+$color-brown        : #3D3B3B;
+
+$color-red          : #FF675C;
+$color-red-dark     : darken($color-red, 8%);
+$color-red-light    : lighten($color-red, 16%);
+
+$color-yellow       : #FFC95C;
+$color-yellow-dark  : darken($color-yellow, 8%);
+$color-yellow-light : lighten($color-yellow, 16%);
+$color-yellow-bg    : lighten($color-yellow, 25%);
+
+$color-green        : #85CC49;
+$color-green-dark   : darken($color-green, 8%);
+$color-green-light  : lighten($color-green, 16%);
+$color-green-bg     : lighten($color-green, 25%);
+
+$color-white        : #ffffff;
+
+
+// nu.notarissen colors
+
+$color-slate: #E2E2E2;
+$color-brand: #C99421;
+$color-light: #FFFFFF;
+$color-medium: #717071;
+$color-dark: #4B4A4B;

@@ -1,0 +1,46 @@
+@mixin padding ($direction: null) {
+   @if ($direction == null){
+    padding: 1rem;
+    @include mappy-bp(phone-landscape tablet-portrait) {
+      padding: 3rem;
+    }
+    @include mappy-bp(tablet-portrait) {
+      padding: 2rem;
+    }
+    @include mappy-bp(desktop) {
+      padding: 3rem;
+    }
+  }
+  @if ($direction == horizontal) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @include mappy-bp(phone-landscape tablet-portrait) {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    @include mappy-bp(tablet-portrait) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    @include mappy-bp(desktop) {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+  @if ($direction == vertical) {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    @include mappy-bp(phone-landscape tablet-portrait) {
+      padding-bottom: 3rem;
+      padding-top: 3rem;
+    }
+    @include mappy-bp(tablet-portrait) {
+      padding-bottom: 2rem;
+      padding-top: 2rem;
+    }
+    @include mappy-bp(desktop) {
+      padding-bottom: 3rem;
+      padding-top: 3rem;
+    }
+  }
+}

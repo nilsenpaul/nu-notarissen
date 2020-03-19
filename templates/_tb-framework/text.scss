@@ -1,0 +1,37 @@
+.o-text {
+  @include padding();
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+  &--center { text-align: center; }
+  &--left { text-align: left; }
+  &--right { text-align: right; }
+
+  &--half {
+    @include mappy-bp(tablet-portrait) {
+      max-width: calc(75% - 1rem);
+    }
+
+    @include mappy-bp(tablet-landscape) {
+      max-width: calc(#{percentage(2/3)} - 2rem);
+    }
+
+    @include mappy-bp(desktop) {
+      max-width: calc(50% - 3rem);
+    }
+  }
+
+  &--two-columns {
+    @include mappy-bp(tablet-portrait) {
+      columns: 2;
+      column-gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    @include mappy-bp(desktop) {
+      column-gap: 3rem;
+    }
+  }
+}

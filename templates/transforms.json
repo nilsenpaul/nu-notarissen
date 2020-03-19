@@ -1,0 +1,46 @@
+
+{
+	"default" : {
+		"quality" : 75,
+		"position" : "center-center",
+		"mode" : "crop"
+	},
+	"web" : {
+		"default" : {},
+
+		"x-large2x" : {
+			"width" : 2880
+		},
+		"x-large" : {
+			"width" : 1440
+		},
+
+    "large2x" : {
+      "width" : 2080
+    },
+		"large" : {
+			"width" : 1040
+		},
+
+    "medium2x" : {
+      "width" : 1600
+    },
+		"medium" : {
+			"width" : 800
+		},
+
+    "small2x" : {
+      "width" : 1200
+    },
+		"small" : {
+			"width" : 600
+		},
+
+    "x-small2x" : {
+      "width" : 960
+    },
+		"x-small" : {
+			"width" : 480
+		}
+	}
+}

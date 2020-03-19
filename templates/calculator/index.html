@@ -1,0 +1,58 @@
+{% extends "_app/app.html" %}
+
+{% block content %}
+
+  {% include 'pages/_header' %}
+
+  {% if entry.option_related_position == 'top' %}
+  {% include 'pages/_links' %}
+  {% endif %}
+
+  <section class="calculator__content">
+    {{ entry.body }}
+  </section>
+
+  {% if entry.option_related_position == 'bottom' %}
+    {% include 'pages/_links' %}
+  {% endif %}
+
+  {#
+  {% set sections = craft.entries.section('services').level(1) %}
+  {% if sections | length %}
+  <section class="related">
+    <ul class="related__list">
+
+      {% for entry in sections.all() %}
+      {% set image = entry.image.one() %}
+
+        <li class="calculator__item related__item">
+          <a class="related__link" href="{{ entry.url }}">
+
+            {% if image %}
+
+            <figure class="related__item__image__container">
+              <img class="related__item__image" src="{{ image.url }}" alt="" />
+            </figure>
+
+            {% endif %}
+
+            <h3 class="calculator__title">
+              {{ entry.title }}
+            </h3>
+
+            {{ entry.body }}
+          </a>
+
+          <p class="calculator__more">
+            <a href="{{ entry.page.one().url }}" class="button button--text">meer informatie</a>
+          </p>
+        </li>
+
+      {% endfor %}
+
+    </ul>
+  </section>
+  {% endif %}
+  #}
+
+{% endblock %}

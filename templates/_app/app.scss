@@ -1,0 +1,96 @@
+// scss-lint:disable NestingDepth SelectorDepth Indentation
+
+.app {
+  &.is-fixed {
+    overflow: hidden;
+  }
+
+  @include mappy-bp(tablet) {
+    margin-top: 3rem;
+  }
+}
+
+.app-assets {
+  left: -200%;
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+
+.app-main {
+  background-color: $color-slate;
+  min-height: 75vh;
+  padding: 1rem;
+
+  @include mappy-bp(tablet) {
+    padding: 2rem;
+  }
+}
+
+.container {
+  margin: 0 1rem;
+  position: relative;
+
+  @include mappy-bp(desktop) {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+}
+
+#mfPreviewBar {
+  position: fixed!important;
+  pointer-events: none;
+  top: 99%!important;
+}
+
+// Utilities
+.u-image-link {
+  border: 0!important;
+}
+
+.button {
+  // background-color: $color-brand;
+  border: 0;
+  color: $color-dark;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Avenir;
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+  text-transform: lowercase;
+
+  // &:hover {
+  //   background-color: lighten($color-brand, 5%);
+  // }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+
+  // Reset button indentation on FF
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &:not(&--text) {
+    background-color: $color-brand;
+    padding: 0.5rem 3rem;
+
+    &:hover {
+      background-color: lighten($color-brand, 5%);
+    }
+  }
+
+
+  &--text {
+    text-decoration: none;
+
+    &:hover {
+      border-bottom: solid 2px $color-brand;
+      margin-bottom: -2px;
+    }
+  }
+}

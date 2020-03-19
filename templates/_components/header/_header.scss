@@ -1,0 +1,25 @@
+.app-header {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  position: relative;
+  z-index: 1;
+
+  @include mappy-bp(tablet) {
+    flex-wrap: nowrap;
+    padding-bottom: 1.25rem;
+    padding-top: 1.75rem;
+  }
+}
+
+.app-title {
+  line-height: 1;
+}
+
+.app-logo {
+  height: 1.75rem;
+  max-width: none;
+}

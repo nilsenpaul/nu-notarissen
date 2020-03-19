@@ -1,0 +1,210 @@
+.app-footer {
+  padding-bottom: 1rem;
+
+  @include mappy-bp(max-width tablet) {
+    margin-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  @include mappy-bp(tablet) {
+    padding-bottom: 3rem;
+  }
+
+  @include mappy-bp(tablet) {
+    .meta__navigation__list {
+      display: flex;
+    }
+  }
+}
+
+.info {
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__logo {
+    height: 2.5rem;
+    width: 2.5rem;
+
+    @include mappy-bp(tablet) {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  &__navigation {
+    text-transform: lowercase;
+  }
+
+  @include mappy-bp(max-width tablet) {
+    &__address {
+      text-align: right;
+
+    }
+
+    &__logo {
+      margin-top: .2rem; // Visually offset the logo for mobile devices so it
+                         // aligns with the .info__address
+    }
+
+    &__street-address {
+      display: block;
+    }
+
+    &__navigation {
+      display: none;
+    }
+  }
+
+  @include mappy-bp(tablet) {
+    background-color: $color-slate;
+    font-size: 0.75rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    &__container {
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    &__address {
+      margin-left: 2rem;
+      margin-right: auto;
+    }
+
+    &__address > *:not(:last-child),
+    &__navigation > *:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}
+
+.meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  text-transform: lowercase;
+
+  &__info {
+    background-color: $color-light;
+    bottom: 3rem;
+    color: $color-brand;
+    font-weight: bold;
+    padding: 1rem;
+    position: absolute;
+    left: -100%;
+    transition:
+      opacity .3s ease,
+      transform .3s ease;
+    opacity: 0;
+    right: 100%;
+    transform: translate3d(0, 1rem, 0);
+    z-index: 1;
+
+    &::after {
+      border: solid 2rem transparent;
+      border-left-color: $color-light;
+      border-top-color: $color-light;
+      border-bottom-width: 1rem;
+      border-top-width: 1rem;
+      content: '';
+      display: block;
+      height: 0;
+      left: 0;
+      position: absolute;
+      top: 100%;
+      width: 0;
+    }
+
+    &.is-active--before,
+    &.is-active--after,
+    &.is-active {
+      left: 2rem;
+      right: 2rem;
+    }
+
+    &.is-active {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @include mappy-bp(tablet) {
+      &.is-active--before,
+      &.is-active--after,
+      &.is-active {
+        bottom: 4rem;
+      }
+    }
+
+    @include mappy-bp(min-height 64em) {
+      &.is-active--before,
+      &.is-active--after,
+      &.is-active {
+        right: 50%;
+      }
+    }
+
+    &__open {
+      color: $color-brand;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    &__open:hover + & {
+      margin-bottom: 2px;
+    }
+
+    &__close {
+      border: 0!important;
+      cursor: pointer;
+      display: block;
+      height: 24px;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      transform: rotate(45deg);
+      width: 24px;
+    }
+  }
+
+  &__navigation {
+
+  }
+
+  &__navigation__list {
+    color: $color-medium;
+    display: flex;
+    font-size: 0.75rem;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+
+    a {
+      color: $color-medium;
+    }
+
+    @include mappy-bp(tablet) {
+      display: none;
+    }
+  }
+
+  &__navigation__item {
+    &:not(:first-of-type)::before {
+      content: '\00A0|\00A0';
+    }
+  }
+
+  @include mappy-bp(max-width tablet) {
+    display: none;
+  }
+}

@@ -1,0 +1,29 @@
+.contact {
+  &__wrapper {
+    @include mappy-bp (tablet-landscape) {
+      display: flex;
+    }
+  }
+
+  &__content,
+  &__map {
+    @include mappy-bp (tablet-landscape) {
+      width: 50%;
+    }
+  }
+
+  &__content {
+    margin-bottom: 1rem;
+    text-align: left;
+
+    .entry__title {
+      margin-left: 0;
+    }
+  }
+
+  &__map {
+    iframe {
+      width: 100%;
+    }
+  }
+}

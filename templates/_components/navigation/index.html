@@ -1,0 +1,21 @@
+{% set links = craft.entries.section('navigation') %}
+{% set segment = craft.app.request.segments |first %}
+
+<a class="navigation__toggle" href="#menu" onclick="toggleMenu(event)">
+    <span class="hide-text">Menu</span>
+  </a>
+
+<nav id="menu" class="app-header__navigation navigation">
+  <ul class="navigation__list">
+    {% for link in links.all() %}
+    {% set page = link.page.one() %}
+    {% if page %}
+      <li class="navigation__item navigation__item--{{page.slug}} {% if (segment == page.slug) %}navigation__item--is-active{% endif %}">
+        <a href="{{ page.url }}">{{ link.title }}</a>
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+
+  {% include '_partials/meta.html' %}
+</nav>

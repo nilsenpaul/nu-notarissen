@@ -1,0 +1,15 @@
+{% set image = entry.image.one() %}
+
+{% if entry.title %}
+<header class="entry__header">
+  <h2 class="entry__title">
+    {% if image %}
+    <figure class="entry__image__container">
+      <img class="entry__image" src="{{ image.url }}" alt="" />
+    </figure>
+    {% endif %}
+
+    {{ entry.title }}
+  </h2>
+</header>
+{% endif %}
