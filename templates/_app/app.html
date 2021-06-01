@@ -54,28 +54,8 @@
   {% include '_app/assets/sprite.svg' %}
 </div>
 
-<script type="text/javascript">
-  (function() {
-    var path = '//easy.myfonts.net/v2/js?sid=10336(font-family=Avenir+35+Light)&sid=10338(font-family=Avenir+55+Roman)&sid=10340(font-family=Avenir+85+Heavy)&sid=10344(font-family=Avenir+65+Medium)&key=I2T3OBlxC8',
-        protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
-        trial = document.createElement('script');
-    trial.type = 'text/javascript';
-    trial.async = true;
-    trial.src = protocol + path;
-    var head = document.getElementsByTagName("head")[0];
-    head.appendChild(trial);
-  })();
-</script>
-
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-  e.src='https://www.google-analytics.com/analytics.js';
-  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-  ga('create','UA-XXXXX-X');ga('send','pageview');
-</script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
 
 <script src="/dist/bundle.js?version=1.0.0"></script>
 
